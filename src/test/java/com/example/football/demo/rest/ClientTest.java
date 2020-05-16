@@ -5,18 +5,21 @@ import com.example.football.demo.models.Country;
 import com.example.football.demo.models.Standing;
 import com.example.football.demo.models.Team;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest
 class ClientTest {
+    @Autowired
+    FootballApi client;
 
     @Test
     void getCountries() {
-        FootballApi classUnderTest = new Client();
-
-        List<Country> countries = classUnderTest.getCountries();
+        List<Country> countries = client.getCountries();
 
         assertNotNull(countries);
         assertTrue(countries.size() > 0);
@@ -24,9 +27,7 @@ class ClientTest {
 
     @Test
     void getCompetitions() {
-        FootballApi classUnderTest = new Client();
-
-        List<Competition> competitions = classUnderTest.getCompetitions("41");
+        List<Competition> competitions = client.getCompetitions("41");
 
         assertNotNull(competitions);
         assertTrue(competitions.size() > 0);
@@ -34,9 +35,7 @@ class ClientTest {
 
     @Test
     void getTeams() {
-        FootballApi classUnderTest = new Client();
-
-        List<Team> teams = classUnderTest.getTeams("148");
+        List<Team> teams = client.getTeams("148");
 
         assertNotNull(teams);
         assertTrue(teams.size() > 0);
@@ -44,9 +43,7 @@ class ClientTest {
 
     @Test
     void getStandings() {
-        FootballApi classUnderTest = new Client();
-
-        List<Standing> standings = classUnderTest.getStandings("148");
+        List<Standing> standings = client.getStandings("148");
 
         assertNotNull(standings);
         assertTrue(standings.size() > 0);

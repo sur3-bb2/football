@@ -7,6 +7,7 @@ import com.example.football.demo.models.Team;
 import com.example.football.demo.rest.Client;
 import com.example.football.demo.rest.FootballApi;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
